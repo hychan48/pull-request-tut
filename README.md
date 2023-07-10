@@ -16,6 +16,18 @@ echo b `date` > temp/b.txt
 echo c `date` > temp/c.txt
 ```
 
+* initial commit. then modify them from multiple places
+
+```bash
+cd ~/VSCodeProjects
+git clone git@github.com:hychan48/pull-request-tut.git
+git add temp/a.txt -m "a"
+
+cd ~/temp
+git clone git@github.com:hychan48/pull-request-tut.git
+
+```
+
 ## Vscode
 ```bash
 git status
