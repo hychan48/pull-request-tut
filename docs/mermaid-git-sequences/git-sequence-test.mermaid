@@ -1,0 +1,23 @@
+%%In theory
+gitGraph
+%%    create branches
+    commit %% main
+    branch A
+    branch B
+%% Normal
+%%    A first
+    checkout A
+    commit
+    checkout B
+    commit
+%% Stagger
+    checkout A
+    commit
+    checkout B
+    commit
+
+%%    Merge Both into Main
+    checkout main
+    merge A
+    merge B
+

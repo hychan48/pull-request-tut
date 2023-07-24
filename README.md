@@ -25,8 +25,11 @@ echo c $DATE > temp/c.bak.txt
 * initial commit. then modify them from multiple places
 ## Experiment
 ```bash
+# Init
 cd ~/VSCodeProjects
 git clone git@github.com:hychan48/pull-request-tut.git
+
+
 git branch vscode;git checkout vscode;git push -u origin vscode
 echo a `date` > temp/a.txt
 git commit temp/a.txt -m "VSCodeProjects" -m "experiment vscode"
@@ -48,3 +51,40 @@ git status
 
 * remember to check LF/CRLF
 * add .workspace / git config later
+
+# Environment
+1. ~/VScodeProjects/pull-request-tut
+2. ~/vsCodeProjects/pull-request-tut
+  * cygwin
+
+# Githuhb api
+* for validating...?
+
+# .env
+
+
+```mermaid
+%%In theory
+gitGraph
+%%    create branches
+    commit %% main
+    branch A
+    branch B
+%% Normal
+%%    A first
+    checkout A
+    commit
+    checkout B
+    commit
+%% Stagger
+    checkout A
+    commit
+    checkout B
+    commit
+%%    Merge Both into Main
+    checkout main
+    merge A
+    merge B
+
+
+```
