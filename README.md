@@ -199,3 +199,10 @@ echo $? #
 
 # from cache?
 ```
+
+# Result
+* todo cleanup
+* pull request with squash
+  1. ab A B
+* pull request with rebase merge
+  1. ab a1 a2 b1 b2

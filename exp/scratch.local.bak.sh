@@ -2,13 +2,16 @@
 git checkout jc-vscode
 
 # delete remote branches if needed
-bash -f ./utils/remove-test-branches.sh
+# bash -f ./utils/remove-test-branches.sh
 
 # Reset
 git branch --list
 git branch -D ab
 git branch -D a
 git branch -D b
+git branch -D ab-squash
+git branch -D ab-local
+git branch -D ab-rebase
 
 git branch -f ab
 git checkout ab
@@ -19,15 +22,7 @@ echo $TS $DATE
 echo "ab $TS $DATE" > temp/a.txt
 echo "ab $TS $DATE" > temp/b.txt
 echo "ab $TS $DATE" > temp/ab.txt
-function pushToGH(){
 
-  git push --set-upstream origin a
-  git push --set-upstream origin b
-  git push --set-upstream origin ab
-  echo "https://github.com/hychan48/pull-request-tut/compare/ab...a?expand=1"
-  echo "https://github.com/hychan48/pull-request-tut/compare/ab...b?expand=1"
-  git checkout ab
-}
 function add_files() {
     git add temp/a.txt
     git add temp/b.txt
@@ -66,14 +61,11 @@ git rev-list --left-right --count ab...b # 0 1
 
 
 # v2
-pushToGH
-echo pushing sleeping
-sleep 10
 # a2 'tag'
 git checkout a
 echo "a2 $TS $DATE" >> temp/a.txt
 git add temp/a.txt
-git commit -m "a2 $TS $DATE2"
+git commit -m "a2 $TS $DATE"
 
 # b2 'tag'
 git checkout b
@@ -90,9 +82,18 @@ git status
 git branch --list
 # git branch --show-current
 
+# todo push a b ab
+function pushToGH(){
 
-pushToGH
-
+  git push --set-upstream origin a
+  git push --set-upstream origin b
+  git push --set-upstream origin ab
+  echo "https://github.com/hychan48/pull-request-tut/compare/ab...a?expand=1"
+  echo "https://github.com/hychan48/pull-request-tut/compare/ab...b?expand=1"
+  git checkout ab
+}
+# pushToGH
+git checkout ab
 
 # probably want to verify 0 1 0 1 kidna thing
 exit 0
