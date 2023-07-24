@@ -62,29 +62,46 @@ git status
 
 # .env
 
-
+# Mermaid Git Graph
 ```mermaid
-%%In theory
+%% In theory
 gitGraph
 %%    create branches
-    commit %% main
+    commit id: "main"
     branch A
     branch B
 %% Normal
 %%    A first
     checkout A
-    commit
+    commit tag: "a.1"
     checkout B
-    commit
+    commit tag: "b.1"
 %% Stagger
     checkout A
-    commit
+    commit tag: "a.2"
     checkout B
-    commit
+    commit tag: "b.2"
+
 %%    Merge Both into Main
     checkout main
     merge A
     merge B
 
 
+```
+```mermaid
+%% Expected
+gitGraph
+    commit id: "main"
+    commit tag: "a.1"
+    commit tag: "b.1"
+    commit tag: "a.2"
+    commit tag: "b.2"
+```
+
+# git exp
+```bash
+git status
+git branch --show-current
+git branch --list
 ```
