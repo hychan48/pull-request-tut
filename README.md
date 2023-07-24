@@ -156,11 +156,20 @@ git rev-list --left-right --count b...a
 ```bash
 # to cache
 mkdir -p .cache/
-rsync -a README.md .cache/README.cache.md
-rsync -a index.sh .cache/index.cache.sh
+rsync -lptgoD -u --itemize-changes README.md .cache/README.cache.md # this cmd
+rsync -lptgoD -u --itemize-changes index.sh .cache/index.cache.sh #
+diff -q README.md .cache/README.cache.md #
+diff -q index.sh .cache/index.cache.sh #
+echo $? # 0 if no diff
+
+# rsync -lptgoD -uv README.md .cache/README.cache.md 
+# rsync -lptgoD -uvP --itemize-changes README.md .cache/README.cache.md 
+# will show >f.st....
+echo $? #
+# rsync -a index.sh .cache/index.cache.sh
 # diff
-diff README.md .cache/README.cache.md
-diff index.sh .cache/index.cache.sh
+
+
 
 # from cache?
 ```
