@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# verbose random notes
 # source and execute? or what
 # init
 # should c be my main? and branch from there?
