@@ -154,6 +154,10 @@ git rev-list --left-right --count b...a
 
 # Cache directory / copy
 ```bash
+# from cache
+rsync -lptgoD -u --itemize-changes .cache/README.cache.md README.md # this cmd
+rsync -lptgoD -u --itemize-changes .cache/index.cache.sh index.sh #
+
 # to cache
 mkdir -p .cache/
 rsync -lptgoD -u --itemize-changes README.md .cache/README.cache.md # this cmd
