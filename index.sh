@@ -16,6 +16,11 @@ git checkout `cat .cache/git-branch-current.txt`
 
 git branch -D a
 git branch -D b
+git branch -D c
+
+# c is the fake
+git branch -f c
+
 
 DATE=`date`
 echo a $DATE > temp/a.txt
