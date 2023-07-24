@@ -142,12 +142,18 @@ git push origin
 
 ```
 ## Revision Compare
+* behind ahead
 ```bash
 # perfect:
 git rev-list --left-right --count main...vsCode
 # 0 5
 git rev-list --left-right --count a...b
 git rev-list --left-right --count b...a
+git rev-list --left-right --count jc-vscode...ab
+git rev-list --left-right --count main...ab
+
+# open:
+code temp/{a,b,ab}.txt
 
 ```
 
@@ -172,6 +178,7 @@ rsync -lptgoD -u --itemize-changes index.sh .cache/index.cache.sh #
 diff -qs README.md .cache/README.cache.md | grep -iP "differ|identical"
 diff -qs index.sh .cache/index.cache.sh  | grep -iP "differ|identical"
 echo $? # 0 if no diff or pipe? hmm
+diff README.md .cache/README.cache.md
 
 # https://manpages.debian.org/bookworm/diffutils/diff.1.en.html
 # rsync -lptgoD -uv README.md .cache/README.cache.md 
