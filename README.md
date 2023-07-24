@@ -1,6 +1,13 @@
 # pull-request-tut
 github pull request tut. for gist
 * https://github.com/hychan48/pull-request-tut
+
+```bash
+git branch --show-current > .cache/git-branch-current.txt
+# git checkout main
+git checkout `cat .cache/git-branch-current.txt`
+```
+
 ## Make branches
 * for a b c
 ```bash
