@@ -7,27 +7,33 @@
 # bash -f ./index.sh
 
 # https://git-scm.com/docs/git-branch
-# reset branches a b c
 # git checkout main
 git branch --show-current > .cache/git-branch-current.txt
 # git checkout main
 git checkout `cat .cache/git-branch-current.txt`
 
-
+# or maybe call it ab
+# reset branches a b ab
 git branch -D a
 git branch -D b
-git branch -D c
+git branch -D ab
 
 # c is the fake
-git branch -f c
+git branch -f a
+git branch -f b
+git branch -f ab
+
+# setup a,b,c for new branch
 
 
-DATE=`date`
-echo a $DATE > temp/a.txt
-echo a $DATE > temp/a.bak.txt
+TS=$(date +%s);DATE=$(date -d "@$TS")
+echo $TS $DATE
+
+echo a $DATE > temp/a.txt # a1?
+echo a $DATE > temp/a.bak.txt # a2?
 
 # git branch -d a
-git branch -f a
+
 git checkout a
 git branch -f b
 
@@ -35,3 +41,9 @@ git branch -f b
 # Housekeeping
 git checkout `cat .cache/git-branch-current.txt`
 # git checkout `cat .cache/git-branch-current.txt` && rm .cache/git-branch-current.txt
+
+# git push <remote_name> --delete <branch_name>
+# git push origin --delete a
+# git push origin --delete b
+# git push origin --delete c
+

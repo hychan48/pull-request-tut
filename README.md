@@ -63,6 +63,7 @@ git status
 # .env
 
 # Mermaid Git Graph
+* main can be 'c' for now? or just use main
 ```mermaid
 %% In theory
 gitGraph
@@ -100,8 +101,22 @@ gitGraph
 ```
 
 # git exp
+* https://github.com/hychan48/pull-request-tut/branches
+* maybe enable auto-merge?
+
 ```bash
 git status
 git branch --show-current
 git branch --list
+git branch --list -r
+
+git log main..vsCode
+git diff main..vsCode # generates a file
+
+# perfect:
+git rev-list --left-right --count main...vsCode
+# 0 5
+git rev-list --left-right --count a...b
+git rev-list --left-right --count b...a
+
 ```
