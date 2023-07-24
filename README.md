@@ -201,8 +201,26 @@ echo $? #
 ```
 
 # Result
+## Squash
+* Squash and Merge Pull Request is the way to go
+1. A - Squash and Merge
+2. B - Squash and Merge
+  * This branch has no conflicts with the base branch
+    1. Update with merge commit
+    2. Update with Rebase
+  * Squash and Merge
+
+## misc
 * todo cleanup
 * pull request with squash
   1. ab A B
 * pull request with rebase merge
   1. ab a1 a2 b1 b2
+
+
+
+## ab-linear
+* add branch rule to see?
+* also i think the pull request is fine
+* it's still linear
+* as long as 'auto-merge' is okay with squash?

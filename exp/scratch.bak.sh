@@ -45,6 +45,10 @@ git rev-list --left-right --count main...ab
 git rev-list --left-right --count ab...a
 git rev-list --left-right --count ab...b
 
+# ab1 new
+TS=$(date +%s);DATE=$(date -d "@$TS")
+echo $TS $DATE
+
 # a1 'tag' - focus on only non conflicting changes? but ahead
 git checkout a
 echo "a1 $TS $DATE" >> temp/a.txt
@@ -68,7 +72,13 @@ git rev-list --left-right --count ab...b # 0 1
 # v2
 pushToGH
 echo pushing sleeping
-sleep 10
+echo "https://github.com/hychan48/pull-request-tut/branches"
+sleep 5
+
+# ab2 new
+TS=$(date +%s);DATE=$(date -d "@$TS")
+echo $TS $DATE
+
 # a2 'tag'
 git checkout a
 echo "a2 $TS $DATE" >> temp/a.txt
