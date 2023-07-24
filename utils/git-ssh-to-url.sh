@@ -22,4 +22,3 @@ if [ "$https_url" != "$expected" ]; then
     echo "Expected $expected, got $https_url"
     exit 1
 fi
-
