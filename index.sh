@@ -13,24 +13,33 @@ git branch --show-current > .cache/git-branch-current.txt
 git checkout `cat .cache/git-branch-current.txt`
 
 # or maybe call it ab
-# reset branches a b ab
+# reset branches a b ab / can use prune but w/e
+# doesnt delete a though
+# git branch -D -r origin/a
+## might comment out later
 git branch -D a
 git branch -D b
 git branch -D ab
 
-# c is the fake
-git branch -f a
-git branch -f b
+# setup a,b,ab for new branch
 git branch -f ab
+git checkout ab
 
-# setup a,b,c for new branch
 
-
+# Experiment
+## setup files
 TS=$(date +%s);DATE=$(date -d "@$TS")
 echo $TS $DATE
 
-echo a $DATE > temp/a.txt # a1?
-echo a $DATE > temp/a.bak.txt # a2?
+echo "ab $TS $DATE" > temp/a.txt
+echo "ab $TS $DATE" > temp/b.txt
+echo "ab $TS $DATE" > temp/ab.txt
+### commit and branch
+
+###
+git branch -f a
+git branch -f b
+
 
 # git branch -d a
 

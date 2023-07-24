@@ -14,10 +14,14 @@ mkdir -p temp
 DATE=`date`
 echo a $DATE > temp/a.txt
 echo b $DATE > temp/b.txt
-echo c $DATE > temp/c.txt
+echo b $DATE > temp/ab.txt
 
+# echo c $DATE > temp/c.txt
+# needed? .bak?
 echo a $DATE > temp/a.bak.txt
 echo b $DATE > temp/b.bak.txt
+
+echo c $DATE > temp/ab.bak.txt
 echo c $DATE > temp/c.bak.txt
 # c.txt can be used as reference
 ```
@@ -113,6 +117,32 @@ git branch --list -r
 git log main..vsCode
 git diff main..vsCode # generates a file
 
+git push --set-upstream origin jc-vscode
+git push --set-upstream origin a
+
+git fetch origin
+git fetch origin --prune
+git fetch origin --prune --dry-run
+
+
+# Create branch and push to github
+git branch -f a
+git push --set-upstream origin a
+## delete
+git push origin --delete a
+git branch -D a
+
+# misc:
+git branch -D -r origin/a
+git branch -d -r a
+git branch -D -r a
+git branch -d -r origin/a
+git branch -D -r origin/a
+git push origin
+
+```
+## Revision Compare
+```bash
 # perfect:
 git rev-list --left-right --count main...vsCode
 # 0 5
