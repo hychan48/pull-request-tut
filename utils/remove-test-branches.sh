@@ -8,6 +8,7 @@ git ls-remote --exit-code --heads origin | tee .cache/git-branch-remote.txt
 # grep "heads/main-sdfsdfsdf" .cache/git-branch-remote.txt || echo 'dne' #
 
 ITEMS=(a b ab)
+ITEMS=(a b ab ab-local ab-squashed)
 for ITEM in ${ITEMS[@]}; do
     echo $ITEM # a b ab
     git branch -D $ITEM
