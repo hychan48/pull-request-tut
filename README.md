@@ -150,3 +150,17 @@ git rev-list --left-right --count a...b
 git rev-list --left-right --count b...a
 
 ```
+
+
+# Cache directory / copy
+```bash
+# to cache
+mkdir -p .cache/
+rsync -a README.md .cache/README.cache.md
+rsync -a index.sh .cache/index.cache.sh
+# diff
+diff README.md .cache/README.cache.md
+diff index.sh .cache/index.cache.sh
+
+# from cache?
+```

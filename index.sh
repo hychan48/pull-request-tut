@@ -8,6 +8,7 @@
 
 # https://git-scm.com/docs/git-branch
 # git checkout main
+exit 0
 git branch --show-current > .cache/git-branch-current.txt
 # git checkout main
 git checkout `cat .cache/git-branch-current.txt`
