@@ -158,10 +158,18 @@ git rev-list --left-right --count b...a
 mkdir -p .cache/
 rsync -lptgoD -u --itemize-changes README.md .cache/README.cache.md # this cmd
 rsync -lptgoD -u --itemize-changes index.sh .cache/index.cache.sh #
-diff -q README.md .cache/README.cache.md #
-diff -q index.sh .cache/index.cache.sh #
-echo $? # 0 if no diff
+# diff -q README.md .cache/README.cache.md # -q is --brief
+# diff --brief README.md .cache/README.cache.md #
+# diff --brief index.sh .cache/index.cache.sh #
+# -s is --report-identical-files
+# -qs is the best
+# diff -q --report-identical-files README.md .cache/README.cache.md #
+# always will print something:
+diff -qs README.md .cache/README.cache.md | grep -iP "differ|identical"
+diff -qs index.sh .cache/index.cache.sh  | grep -iP "differ|identical"
+echo $? # 0 if no diff or pipe? hmm
 
+# https://manpages.debian.org/bookworm/diffutils/diff.1.en.html
 # rsync -lptgoD -uv README.md .cache/README.cache.md 
 # rsync -lptgoD -uvP --itemize-changes README.md .cache/README.cache.md 
 # will show >f.st....
